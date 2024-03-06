@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <p><button type="submit">Отправить</button></p>
+</form>
+<form action="{% url 'wordcount' %}" method="post">
+    {% csrf_token %}
+    {{ word_form.as_p }}
+    <p><button type="submit">Count</button></p>
+</form>
+Count: {{ count }}
+<form action="">
+    <button type="submit" name="clear" value="clear">Clear memory</button>
+</form>
+</body>
+</html>
